@@ -17,5 +17,9 @@
     "prettier-plugin-svelte": "^2.2.0",
     "svelte": "^3.34.0"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "dompurify": "^2.3.0",
+    "marked": "^2.1.3"
+  }
 }

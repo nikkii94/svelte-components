@@ -4,6 +4,7 @@
     import BetterAccordion from "../lib/BetterAccordion.svelte";
     import SearchFilter from "../lib/SearchFilter.svelte";
     import Field from "../lib/Field.svelte";
+    import Markdown from "../lib/Markdown.svelte";
 
     let isToggled = false;
 
@@ -16,6 +17,8 @@
         'brooklyn',
     ];
     let search = '';
+
+    let markdownText = 'hello text';
 </script>
 
 <h1>Toggle Component</h1>
@@ -40,7 +43,7 @@
 <!--</Accordion>-->
 
 <h1>BetterAccordion Component</h1>
-<BetterAccordion buttonText="Toggle this button">
+<BetterAccordion isOpen={false} buttonText="Toggle this button">
     <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </p>
@@ -53,3 +56,6 @@
 <h1>Input Field</h1>
 <Field bind:value={search} label="Search" instructions="Type to search..." placeholder="Joe" />
 <Field value={0} label="Number" type="number" instructions="Type to search..." placeholder="Joe" />
+
+<h1>Markdown</h1>
+<Markdown bind:text={markdownText} />
