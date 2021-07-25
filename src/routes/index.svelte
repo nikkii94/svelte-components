@@ -1,0 +1,55 @@
+<script>
+    import Toggle from '$lib/Toggle.svelte';
+    // import Accordion from "../lib/Accordion.svelte";
+    import BetterAccordion from "../lib/BetterAccordion.svelte";
+    import SearchFilter from "../lib/SearchFilter.svelte";
+    import Field from "../lib/Field.svelte";
+
+    let isToggled = false;
+
+    let items = [
+        'scott',
+        'wes',
+        'landon',
+        'courtney',
+        'lucie',
+        'brooklyn',
+    ];
+    let search = '';
+</script>
+
+<h1>Toggle Component</h1>
+
+<Toggle bind:isToggled label="Toggle label"/>
+<Toggle bind:isToggled label="Toggle label 2" style="--background: red; --toggledButtonColor: green"/>
+
+{#if isToggled}
+    <h2>is toggled</h2>
+{/if}
+
+<!--<h1>Accordion Component</h1>-->
+<!--<Accordion buttonText="+">-->
+<!--    <p>-->
+<!--        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.-->
+<!--    </p>-->
+<!--</Accordion>-->
+<!--<Accordion isOpen={false} buttonText="+">-->
+<!--    <p>-->
+<!--        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.-->
+<!--    </p>-->
+<!--</Accordion>-->
+
+<h1>BetterAccordion Component</h1>
+<BetterAccordion buttonText="Toggle this button">
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+</BetterAccordion>
+
+<h1>Search & Filter: {search}</h1>
+<SearchFilter style="--listItemBackground: aqua" items={items} bind:search />
+
+
+<h1>Input Field</h1>
+<Field bind:value={search} label="Search" instructions="Type to search..." placeholder="Joe" />
+<Field value={0} label="Number" type="number" instructions="Type to search..." placeholder="Joe" />
