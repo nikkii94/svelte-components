@@ -1,12 +1,14 @@
 <script>
     import Toggle from '$lib/Toggle.svelte';
-    // import Accordion from "../lib/Accordion.svelte";
-    import BetterAccordion from "../lib/BetterAccordion.svelte";
-    import SearchFilter from "../lib/SearchFilter.svelte";
-    import Field from "../lib/Field.svelte";
-    import Markdown from "../lib/Markdown.svelte";
-    import Portal from "../lib/Portal.svelte";
-    import Modal from "../lib/Modal.svelte";
+    // import Accordion from "$lib/Accordion.svelte";
+    import BetterAccordion from "$lib/BetterAccordion.svelte";
+    import SearchFilter from "$lib/SearchFilter.svelte";
+    import Field from "$lib/Field.svelte";
+    import Markdown from "$lib/Markdown.svelte";
+    import Portal from "$lib/Portal.svelte";
+    import Modal from "$lib/Modal.svelte";
+    import Toast from "$lib/Toast/Toast.svelte";
+    import { toast } from "$lib/Toast/toast";
 
     let isToggled = false;
 
@@ -69,3 +71,7 @@
     <Field bind:value={search} label="Search" instructions="Type to search..." placeholder="Joe" />
     <Field value={0} label="Number" type="number" instructions="Type to search..." placeholder="Joe" />
 </Modal>
+
+<h1>Toast</h1>
+<button on:click={() => toast.send('New message ' + Math.random())}>Add toast</button>
+<Toast />
