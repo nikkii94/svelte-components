@@ -66,7 +66,7 @@
 
 <h1>Modal</h1>
 <button on:click={() => isModalOpen = true}>Open modal</button>
-<Modal bind:isModalOpen>
+<Modal bind:isModalOpen background={true}>
     <h1>Input Field</h1>
     <Field bind:value={search} label="Search" instructions="Type to search..." placeholder="Joe" />
     <Field value={0} label="Number" type="number" instructions="Type to search..." placeholder="Joe" />
@@ -74,4 +74,5 @@
 
 <h1>Toast</h1>
 <button on:click={() => toast.send('New message ' + Math.random())}>Add toast</button>
-<Toast />
+
+<Toast duration={3000} />
