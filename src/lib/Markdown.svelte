@@ -9,7 +9,8 @@
 
     // Reactive expression
     $: {
-        markdownText = DOMPurify.sanitize(marked(text));
+        // markdownText = DOMPurify.sanitize(marked(text));
+        markdownText = marked(text);
     }
 </script>
 

@@ -5,6 +5,8 @@
     import SearchFilter from "../lib/SearchFilter.svelte";
     import Field from "../lib/Field.svelte";
     import Markdown from "../lib/Markdown.svelte";
+    import Portal from "../lib/Portal.svelte";
+    import Modal from "../lib/Modal.svelte";
 
     let isToggled = false;
 
@@ -19,6 +21,8 @@
     let search = '';
 
     let markdownText = 'hello text';
+
+    let isModalOpen = false;
 </script>
 
 <h1>Toggle Component</h1>
@@ -52,10 +56,16 @@
 <h1>Search & Filter: {search}</h1>
 <SearchFilter style="--listItemBackground: aqua" items={items} bind:search />
 
+<h1>Portal</h1>
+<Portal>
+    <h1>Markdown</h1>
+    <Markdown bind:text={markdownText} />
+</Portal>
 
-<h1>Input Field</h1>
-<Field bind:value={search} label="Search" instructions="Type to search..." placeholder="Joe" />
-<Field value={0} label="Number" type="number" instructions="Type to search..." placeholder="Joe" />
-
-<h1>Markdown</h1>
-<Markdown bind:text={markdownText} />
+<h1>Modal</h1>
+<button on:click={() => isModalOpen = true}>Open modal</button>
+<Modal bind:isModalOpen>
+    <h1>Input Field</h1>
+    <Field bind:value={search} label="Search" instructions="Type to search..." placeholder="Joe" />
+    <Field value={0} label="Number" type="number" instructions="Type to search..." placeholder="Joe" />
+</Modal>
